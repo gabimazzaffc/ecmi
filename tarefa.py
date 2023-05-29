@@ -1,3 +1,3 @@
-arquivo = open ('marcas-carro.csv')
+arquivo = open('marcas-carros.csv')
 for linha in arquivo: 
    print(linha)
