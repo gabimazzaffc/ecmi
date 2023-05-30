@@ -3,7 +3,7 @@ import pandas as pd
 df = pd.read_parquet('dados_gruposoma.parquet')
 df
 
-
+df['Mês'] = df['Post Created Date'].dt.month
 df['Ano'] = df['Post Created Date'].dt.year
 media_interactions_mes_ano = df.groupby(['Account', 'Mês','Ano'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Ano', 'Mês'])
 media_interactions_mes_ano['Interactions Growth'] = media_interactions_mes_ano.groupby('Account')['Total Interactions'].transform(lambda x: x.pct_change())
