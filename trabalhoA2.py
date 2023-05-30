@@ -15,5 +15,5 @@ media_interactions_mes_ano['Interactions Growth'] = media_interactions_mes_ano.g
 media_interactions_ano = df.groupby(['Account', 'Ano'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Ano'])
 media_interactions_ano['Interactions Growth'] = media_interactions_ano.groupby('Account')['Total Interactions'].pct_change()
 
-chart_data = df[['Animale', 'CRIS BARROS', 'FARM rio', 'FOXTON', 'Hering Oficial', 'Maria Filó', 'NV by Nati Vozza' ]]
+chart_data = df[[ 'Ano', 'Interactions Growth']]
 st.line_chart(chart_data)
