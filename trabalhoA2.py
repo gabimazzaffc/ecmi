@@ -1,3 +1,4 @@
+import streamlit as st
 import pandas as pd
 
 df = pd.read_parquet('dados_gruposoma.parquet')
@@ -14,12 +15,5 @@ media_interactions_mes_ano['Interactions Growth'] = media_interactions_mes_ano.g
 media_interactions_ano = df.groupby(['Account', 'Ano'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Ano'])
 media_interactions_ano['Interactions Growth'] = media_interactions_ano.groupby('Account')['Total Interactions'].pct_change()
 
-import streamlit as st
-import pandas as pd
-import numpy as np
-
-media_interactions_ano = pd.DataFrame(
-   media_interactions_ano('Ano', 'Interactions Growth'),
-    columns=['Account'])
-
-st.line_chart(data=media_interactions_ano, x='Ano', y='Total Interactions', use_container_width=True)
+chart_data = df[['Animale', 'CRIS BARROS', 'FARM rio', 'FOXTON', 'Hering Oficial', 'Maria Filó', 'NV by Nati Vozza' ]]
+st.line_chart(chart_data)
