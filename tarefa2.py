@@ -17,4 +17,3 @@ chart_data = pd.DataFrame(
 
 st.line_chart(happinnes)
 
-st.line_chart(data= happiness, x=Healthy life expectancy, y=Generosity, use_container_width=True)
