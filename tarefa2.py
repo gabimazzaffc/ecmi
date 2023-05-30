@@ -10,4 +10,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+chart_data = pd.DataFrame(
+    np.happinnes(20, 3),
+    columns=['Healthy life expectancy', 'Generosity', 'Social suport'])
+
+st.line_chart(happinnes)
+
 st.line_chart(data= happiness, x=Healthy life expectancy, y=Generosity, use_container_width=True)
