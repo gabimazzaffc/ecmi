@@ -10,11 +10,11 @@ df
 df['Mês'] = df['Post Created Date'].dt.month
 df['Ano'] = df['Post Created Date'].dt.year
 media_interactions_ano = pd.DataFrame({
-   'Ano': media_interactions_ano['Ano'],
+   'Account': media_interactions_ano['Account'],
    'Interactions Growth': media_interactions_ano['Interactions Growth']
 })
 
-st.line_chart(data=media_interactions_ano, x='Ano', y='Interactions Growth', use_container_width=True)
+st.line_chart(data=media_interactions_ano, x='Account', y='Interactions Growth', use_container_width=True)
 
 import streamlit as st
 import pandas as pd
