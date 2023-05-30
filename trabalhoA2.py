@@ -17,4 +17,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+media_interactions_ano = pd.DataFrame(
+   media_interactions_ano('Ano', 'Interactions Growth'),
+    columns=['Account'])
+
+
 st.line_chart(media_interactions_ano)
