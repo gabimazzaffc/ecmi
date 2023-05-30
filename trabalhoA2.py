@@ -23,4 +23,4 @@ media_interactions_ano = pd.DataFrame(
     columns=['Account'])
 
 
-st.line_chart(media_interactions_ano)
+st.line_chart(data= media_interactions_ano, x= 'Ano' , y= 'Total Interactions', use_container_width=True)
