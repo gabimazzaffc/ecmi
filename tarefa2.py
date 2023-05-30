@@ -11,5 +11,5 @@ chart_data = pd.DataFrame(
     np.random.randn(155, 3),
     columns=['Healthy life expectancy', 'Generosity', 'Social support'])
 
-st.line_chart(happinnes)
+st.line_chart(chart_data)
 
