@@ -8,7 +8,7 @@ df
 
 max_interactions = df.groupby('Account')['Total Interactions'].max()
 resultado = df[df['Total Interactions'].isin(max_interactions)]
-resultado
+st.write(resultado)
 
 
 
