@@ -4,6 +4,7 @@ import pandas as pd
 df = pd.read_parquet('dados_gruposoma.parquet')
 df['Post Created Date'] = pd.to_datetime(df['Post Created Date'])
 # df['Post Created'] = pd.to_datetime(df['Post Created'].str[:-4], format='%Y-%m-%d %H:%M:%S').dt.tz_localize('America/Sao_Paulo')
+df
 
 max_interactions = df.groupby('Account')['Total Interactions'].max()
 resultado = df[df['Total Interactions'].isin(max_interactions)]
