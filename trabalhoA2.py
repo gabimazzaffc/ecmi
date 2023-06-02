@@ -8,15 +8,15 @@ df
 
 max_interactions = df.groupby('Account')['Total Interactions'].max()
 resultado = df[df['Total Interactions'].isin(max_interactions)]
-st.write(resultado)
+resultado
 
 
-df['Mês'] = df['Post Created Date'].dt.month
-df['Ano'] = df['Post Created Date'].dt.year
-media_interactions_mes_ano = df.groupby(['Account','Ano'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Ano'])
-media_interactions_mes_ano['Interactions Growth'] = media_interactions_mes_ano.groupby('Account')['Total Interactions'].transform(lambda x: x.pct_change())
-media_interactions_ano = df.groupby(['Account', 'Ano'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Ano'])
-media_interactions_ano['Interactions Growth'] = media_interactions_ano.groupby('Account')['Total Interactions'].pct_change()
+#df['Mês'] = df['Post Created Date'].dt.month
+#df['Ano'] = df['Post Created Date'].dt.year
+#media_interactions_mes_ano = df.groupby(['Account','Ano'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Ano'])
+#media_interactions_mes_ano['Interactions Growth'] = media_interactions_mes_ano.groupby('Account')['Total Interactions'].transform(lambda x: x.pct_change())
+#media_interactions_ano = df.groupby(['Account', 'Ano'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Ano'])
+#media_interactions_ano['Interactions Growth'] = media_interactions_ano.groupby('Account')['Total Interactions'].pct_change()
 
-chart_data = df[[ 'Ano', 'Interactions Growth']]
-st.line_chart(chart_data)
+#chart_data = df[[ 'Ano', 'Interactions Growth']]
+#st.line_chart(chart_data)
