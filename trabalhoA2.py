@@ -14,7 +14,8 @@ max_interactions = df.groupby('Account')['Total Interactions'].max()
 resultado = df[df['Total Interactions'].isin(max_interactions)]
 st.write(resultado)
 
-
+st.header('Posts com maior número de interações de uma marca')
+st.write(df[df['User Name'] == 'bynv']).sort_values(by='Total Interactions', ascending=False)
 # def plot_interacoes_followers(df, username, ano):
   #  if type(ano) != str:
    #     ano = str(ano)
@@ -55,8 +56,6 @@ df['Semana'] = df['Post Created Date'].dt.isocalendar().week
 media_interactions_ano = df.groupby(['Account', 'Ano'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Ano'])
 media_interactions_ano['Interactions Growth'] = media_interactions_ano.groupby('Account')['Total Interactions'].pct_change()
 
-
-st.header('Interactions Growth')
 st.altair_chart(alt.Chart(media_interactions_ano).mark_line().encode(x='Ano', y='Interactions Growth', color='Account', tooltip=['Account', 'Ano', 'Interactions Growth']).interactive(), use_container_width=True)
 
 st.header('Média de interações por ano')
