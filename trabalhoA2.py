@@ -51,8 +51,8 @@ df['Ano'] = df['Post Created Date'].dt.year
 df['Mes'] = df['Post Created Date'].dt.month
 df['Semana'] = df['Post Created Date'].dt.isocalendar().week
 
-media_interactions_semana = df.groupby(['Account', 'Semana'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Semana'])
-media_interactions_semana['Interactions Growth'] = media_interactions_semana.groupby('Account')['Total Interactions'].pct_change()
+media_interactions_ano = df.groupby(['Account', 'Ano'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Ano'])
+media_interactions_ano['Interactions Growth'] = media_interactions_ano.groupby('Account')['Total Interactions'].pct_change()
 
-st.altair_chart(alt.Chart(media_interactions_semana).mark_line().encode(x='Semana', y='Interactions Growth', color='Account', tooltip=['Account', 'Semana', 'Interactions Growth']).interactive(), use_container_width=True)
+st.altair_chart(alt.Chart(media_interactions_ano).mark_line().encode(x='Ano', y='Interactions Growth', color='Account', tooltip=['Account', 'Ano', 'Interactions Growth']).interactive(), use_container_width=True)
 
