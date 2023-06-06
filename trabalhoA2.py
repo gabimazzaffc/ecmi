@@ -36,9 +36,12 @@ def grafico_interativo_interacoes(df, username, ano):
     usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index()
     usuario_followers = usuario.groupby('Post Created Date')['Followers at Posting'].mean().reset_index()
     usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index() 
-    interacao = alt.Chart(usuario_interactions, title=alt.Title('Total de interações')).mark_line().encode(x='Post Created Date', y='Total Interactions', tooltip=['Post Created Date', 'Total Interactions'])
-    follower = alt.Chart(usuario_followers,  title=alt.Title('Followers')).mark_line().encode(x='Post Created Date', y='Followers at Posting', tooltip=['Post Created Date', 'Total Interactions'])
+    interacao = alt.Chart(usuario_interactions).mark_line().encode(x='Post Created Date', y='Total Interactions', tooltip=['Post Created Date', 'Total Interactions'])
+    follower = alt.Chart(usuario_followers).mark_line().encode(x='Post Created Date', y='Followers at Posting', tooltip=['Post Created Date', 'Total Interactions'])
     return interacao & follower
 
+st.header('Gráficos - NV')
 st.altair_chart(grafico_interativo_interacoes(df, 'bynv', '2021'), use_container_width=True)
+
+st.header('Gráficos - FARM') 
 st.altair_chart(grafico_interativo_interacoes(df, 'adorofarm', '2022'), use_container_width=True)
