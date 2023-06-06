@@ -7,6 +7,7 @@ df = pd.read_parquet('dados_gruposoma.parquet')
 df['Post Created Date'] = pd.to_datetime(df['Post Created Date'])
 df['Total Interactions'] = df['Total Interactions'].apply(lambda x: int(x.replace(',', '')))
 # df['Post Created'] = pd.to_datetime(df['Post Created'].str[:-4], format='%Y-%m-%d %H:%M:%S').dt.tz_localize('America/Sao_Paulo')
+st.dataframe(df)
 
 
 def plot_interacoes_followers(df, username, ano):
