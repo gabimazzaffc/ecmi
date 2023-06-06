@@ -2,3 +2,4 @@ wordcloud
 bs4
 streamlit
 pandas
+seaborn
