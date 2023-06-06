@@ -13,7 +13,6 @@ def plot_interacoes_followers(df, username, ano):
     usuario = df[df['User Name'] == username].query('`Post Created Date` >= "' + ano + '-01-01" and `Post Created Date` <= "' + ano + '-12-31"')
     usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index()
     usuario_followers = usuario.groupby('Post Created Date')['Followers at Posting'].mean().reset_index()
-    fig, axes = plt.subplots(2, 1, sharex=True, figsize=(18, 10))
     fig.suptitle('Interações e Seguidores - ' + username + ' - ' + ano)
     sns.lineplot(ax=axes[0], data=usuario_interactions, x='Post Created Date', y='Total Interactions').set(title='Total de interações por dia - ' + username)
     sns.lineplot(ax=axes[1], data=usuario_followers, x='Post Created Date', y='Followers at Posting').set(title='Followers por dia - ' + username)
