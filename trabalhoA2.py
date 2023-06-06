@@ -15,7 +15,7 @@ resultado = df[df['Total Interactions'].isin(max_interactions)]
 st.write(resultado)
 
 st.header('Posts com maior número de interações de uma marca')
-st.write(df[df['User Name'] == 'bynv']).sort_values(by='Total Interactions', ascending=False)
+st.write(df[df['User Name'] == 'bynv'].sort_values(by='Total Interactions', ascending=False))
 # def plot_interacoes_followers(df, username, ano):
   #  if type(ano) != str:
    #     ano = str(ano)
