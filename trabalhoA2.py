@@ -37,7 +37,7 @@ def grafico_interativo_interacoes(df, username, ano):
     usuario_followers = usuario.groupby('Post Created Date')['Followers at Posting'].mean().reset_index()
     usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index() 
     interacao = alt.Chart(usuario_interactions).mark_line().encode(x='Post Created Date', y='Total Interactions', tooltip=['Post Created Date', 'Total Interactions'], title=alt.Title('Total de interações'))
-    follower = alt.Chart(usuario_followers).mark_line().encode(x='Post Created Date', y='Followers at Posting', tooltip=['Post Created Date', 'Total Interactions'], title=alt.Title('Followers')
+    follower = alt.Chart(usuario_followers).mark_line().encode(x='Post Created Date', y='Followers at Posting', tooltip=['Post Created Date', 'Total Interactions'], title=alt.Title('Followers'))
     return interacao & follower
 
 st.altair_chart(grafico_interativo_interacoes(df, 'bynv', '2021'), use_container_width=True)
