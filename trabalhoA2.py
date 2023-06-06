@@ -6,8 +6,12 @@ import matplotlib.pyplot as plt
 df = pd.read_parquet('dados_gruposoma.parquet')
 df['Post Created Date'] = pd.to_datetime(df['Post Created Date'])
 df['Total Interactions'] = df['Total Interactions'].apply(lambda x: int(x.replace(',', '')))
-# df['Post Created'] = pd.to_datetime(df['Post Created'].str[:-4], format='%Y-%m-%d %H:%M:%S').dt.tz_localize('America/Sao_Paulo')
+# df['Post Created'] = pd.to_datetime(df['Post Created'], format='mixed')
 st.dataframe(df)
+
+max_interactions = df.groupby('Account')['Total Interactions'].max()
+resultado = df[df['Total Interactions'].isin(max_interactions)]
+st.write(resultado)
 
 
 def plot_interacoes_followers(df, username, ano):
