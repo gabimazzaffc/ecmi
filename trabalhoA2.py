@@ -45,3 +45,14 @@ st.markdown('análise blabláblá')
 
 st.header('Gráficos - FARM') 
 st.altair_chart(grafico_interativo_interacoes(df, 'adorofarm', '2022'), use_container_width=True)
+
+st.header('Crescimento percentual de interações por conta')
+df['Ano'] = df['Post Created Date'].dt.year
+df['Mes'] = df['Post Created Date'].dt.month
+df['Semana'] = df['Post Created Date'].dt.isocalendar().week
+
+media_interactions_semana = df.groupby(['Account', 'Semana'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Semana'])
+media_interactions_semana['Interactions Growth'] = media_interactions_semana.groupby('Account')['Total Interactions'].pct_change()
+
+alt.Chart(media_interactions_semana).mark_line().encode(x='Semana', y='Interactions Growth', color='Account', tooltip=['Account', 'Semana', 'Interactions Growth'])
+
