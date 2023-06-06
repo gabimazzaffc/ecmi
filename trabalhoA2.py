@@ -39,4 +39,4 @@ def grafico_interativo_interacoes(df, username, ano):
     return alt.Chart(usuario_interactions).mark_line().encode(x='Post Created Date', y='Total Interactions')
 
 
-st.altair_chart(grafico_interativo_interacoes(df, 'bynv', '2021'))
+st.altair_chart(grafico_interativo_interacoes(df, 'bynv', '2021'), use_container_width=True)
