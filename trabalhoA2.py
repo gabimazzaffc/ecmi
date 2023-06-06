@@ -38,6 +38,6 @@ def grafico_interativo_interacoes(df, username, ano):
     usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index() 
     interacao = alt.Chart(usuario_interactions).mark_line().encode(x='Post Created Date', y='Total Interactions')
     follower = alt.Chart(usuario_followers).mark_line().encode(x='Post Created Date', y='Followers at Posting')
-    return alt.layer(interacao, follower)
+    return interacao & follower
 
 st.altair_chart(grafico_interativo_interacoes(df, 'bynv', '2021'), use_container_width=True)
