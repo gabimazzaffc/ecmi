@@ -48,6 +48,7 @@ st.altair_chart(grafico_interativo_interacoes(df, 'adorofarm', '2022'), use_cont
 
 st.header('Crescimento percentual de interações por conta')
 df['Ano'] = df['Post Created Date'].dt.year
+df['Ano'] = df['Ano'].astype(int)
 df['Mes'] = df['Post Created Date'].dt.month
 df['Semana'] = df['Post Created Date'].dt.isocalendar().week
 
