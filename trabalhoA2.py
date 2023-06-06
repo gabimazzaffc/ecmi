@@ -41,6 +41,7 @@ def grafico_interativo_interacoes(df, username, ano):
 
 st.header('Gráficos - NV')
 st.altair_chart(grafico_interativo_interacoes(df, 'bynv', '2021'), use_container_width=True)
+st.markdown('análise blabláblá')
 
 st.header('Gráficos - FARM') 
 st.altair_chart(grafico_interativo_interacoes(df, 'adorofarm', '2022'), use_container_width=True)
