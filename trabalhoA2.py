@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import altair as alt
 
 df = pd.read_parquet('dados_gruposoma.parquet')
 df['Post Created Date'] = pd.to_datetime(df['Post Created Date'])
@@ -28,9 +29,14 @@ def plot_interacoes_followers(df, username, ano):
     
 plot_interacoes_followers(df, 'bynv', '2021')
 
+def grafico_interativo_interacoes(df, username, ano):
+    if type(ano) != str: 
+        ano = str(ano) 
+    usuario = df[df['User Name'] == username].query('`Post Created Date` >= "' + ano + '-01-01" and `Post Created Date` <= "' + ano + '-12-31"')
+    usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index()
+    usuario_followers = usuario.groupby('Post Created Date')['Followers at Posting'].mean().reset_index()
+    usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index() 
+    return alt.Chart(usuario_interactions).mark_line().encode(x='Post Created Date', y='Total Interactions')
 
 
-
-
-#chart_data = df[[ 'Ano', 'Interactions Growth']]
-#st.line_chart(chart_data)
+grafico_interativo_interacoes(df, 'bynv', '2021')
