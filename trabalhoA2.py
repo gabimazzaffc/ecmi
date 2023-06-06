@@ -33,11 +33,10 @@ def grafico_interativo_interacoes(df, username, ano):
     if type(ano) != str: 
         ano = str(ano) 
     usuario = df[df['User Name'] == username].query('`Post Created Date` >= "' + ano + '-01-01" and `Post Created Date` <= "' + ano + '-12-31"')
-    usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index()
     usuario_followers = usuario.groupby('Post Created Date')['Followers at Posting'].mean().reset_index()
     usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index() 
     interacao = alt.Chart(usuario_interactions).mark_line().encode(x='Post Created Date', y='Total Interactions', tooltip=['Post Created Date', 'Total Interactions'])
-    follower = alt.Chart(usuario_followers).mark_line().encode(x='Post Created Date', y='Followers at Posting', tooltip=['Post Created Date', 'Total Interactions'])
+    follower = alt.Chart(usuario_followers).mark_line().encode(x='Post Created Date', y='Followers at Posting', tooltip=['Post Created Date', 'Followers at Posting'])
     return interacao & follower
 
 st.header('Gráficos - NV')
