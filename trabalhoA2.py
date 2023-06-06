@@ -55,5 +55,10 @@ df['Semana'] = df['Post Created Date'].dt.isocalendar().week
 media_interactions_ano = df.groupby(['Account', 'Ano'])['Total Interactions'].mean().reset_index().sort_values(by=['Account', 'Ano'])
 media_interactions_ano['Interactions Growth'] = media_interactions_ano.groupby('Account')['Total Interactions'].pct_change()
 
+
+st.header('Interactions Growth')
 st.altair_chart(alt.Chart(media_interactions_ano).mark_line().encode(x='Ano', y='Interactions Growth', color='Account', tooltip=['Account', 'Ano', 'Interactions Growth']).interactive(), use_container_width=True)
+
+st.header('Média de interações por ano')
+st.altair_chart(alt.Chart(media_interactions_ano).mark_line().encode(x='Ano', y='Total Interactions', color='Account', tooltip=['Account', 'Ano', 'Interactions Growth']).interactive(), use_container_width=True)
 
