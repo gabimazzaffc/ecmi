@@ -17,7 +17,7 @@ def plot_interacoes_followers(df, username, ano):
     fig.suptitle('Interações e Seguidores - ' + username + ' - ' + ano)
     sns.lineplot(ax=axes[0], data=usuario_interactions, x='Post Created Date', y='Total Interactions').set(title='Total de interações por dia - ' + username)
     sns.lineplot(ax=axes[1], data=usuario_followers, x='Post Created Date', y='Followers at Posting').set(title='Followers por dia - ' + username)
-    plt.show()
+    st.pyplot(fig)
     
 plot_interacoes_followers(df, 'bynv', '2021')
 
