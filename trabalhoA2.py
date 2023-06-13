@@ -15,20 +15,12 @@ resultado = df[df['Total Interactions'].isin(max_interactions)]
 st.write(resultado)
 
 st.header('Posts com maior número de interações de uma marca')
-st.write(df[df['User Name'] == 'bynv'].sort_values(by='Total Interactions', ascending=False))
-# def plot_interacoes_followers(df, username, ano):
-  #  if type(ano) != str:
-   #     ano = str(ano)
-    #usuario = df[df['User Name'] == username].query('`Post Created Date` >= "' + ano + '-01-01" and `Post Created Date` <= "' + ano + '-12-31"')
-    #usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index()
-    #usuario_followers = usuario.groupby('Post Created Date')['Followers at Posting'].mean().reset_index()
-    #fig, axes = plt.subplots(2,1, sharex=True, figsize=(18,18))
-    #fig.suptitle('Interações e Seguidores - ' + username + ' - ' + ano)
-    #sns.lineplot(ax=axes[0], data=usuario_interactions, x='Post Created Date', y='Total Interactions').set(title='Total de interações por dia - ' + username)
-    #sns.lineplot(ax=axes[1], data=usuario_followers, x='Post Created Date', y='Followers at Posting').set(title='Followers por dia - ' + username)
-    #st.pyplot(fig)
-    
-#plot_interacoes_followers(df, 'bynv', '2021')
+opção = st.selectbox(
+    'Qual marca você escolhe?',
+    ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'crisbarrosoficial', 'animalebrasil', 'mariafilo'))
+
+st.write(df[df['User Name'] == opção].sort_values(by='Total Interactions', ascending=False))
+
 
 def grafico_interativo_interacoes(df, username, ano):
     if type(ano) != str: 
