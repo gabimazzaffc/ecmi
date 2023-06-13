@@ -32,15 +32,13 @@ def grafico_interativo_interacoes(df, username, ano):
     follower = alt.Chart(usuario_followers).mark_line().encode(x='Post Created Date', y='Followers at Posting', tooltip=['Post Created Date', 'Followers at Posting'])
     return interacao & follower
 
+st.markdown('análise de interações e seguidores')
 opção = st.selectbox(
     'Qual marca você escolhe?',
     ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'crisbarrosoficial', 'animalebrasil', 'mariafilo'), key='marca')
-
-st.markdown('análise de interações e seguidores')
 st.write('You selected:', opção)
 st.header('Gráficos')
 st.altair_chart(grafico_interativo_interacoes(df, opção, '2021'), use_container_width=True)
-
 
 
 st.header('Crescimento percentual de interações por conta')
