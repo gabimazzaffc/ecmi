@@ -4,12 +4,14 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import altair as alt
 
+st.header('Arquivo Contas do Instagram do Grupo Soma')
 df = pd.read_parquet('dados_gruposoma.parquet')
 df['Post Created Date'] = pd.to_datetime(df['Post Created Date'])
 df['Total Interactions'] = df['Total Interactions'].apply(lambda x: int(x.replace(',', '')))
 # df['Post Created'] = pd.to_datetime(df['Post Created'], format='mixed')
 st.dataframe(df)
 
+st.header('O post com mais interação de cada marca')
 max_interactions = df.groupby('Account')['Total Interactions'].max()
 resultado = df[df['Total Interactions'].isin(max_interactions)]
 st.write(resultado)
