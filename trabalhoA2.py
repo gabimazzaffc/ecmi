@@ -17,7 +17,7 @@ st.write(resultado)
 st.header('Posts com maior número de interações de uma marca')
 marca = st.selectbox(
     'Qual marca você escolhe?',
-    ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'crisbarrosoficial', 'animalebrasil', 'mariafilo'))
+    ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'animalebrasil', 'mariafilo'))
 
 st.write(df[df['User Name'] == marca].sort_values(by='Total Interactions', ascending=False))
 
@@ -36,7 +36,7 @@ st.header('Análise de interações e seguidores')
 #st.markdown('análise de interações e seguidores')
 opção = st.selectbox(
     'Qual marca você escolhe?',
-    ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'crisbarrosoficial', 'animalebrasil', 'mariafilo'), key='marca')
+    ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'animalebrasil', 'mariafilo'), key='marca')
 st.write('You selected:', opção)
 st.header('Gráficos')
 st.altair_chart(grafico_interativo_interacoes(df, opção, '2021'), use_container_width=True)
