@@ -34,7 +34,7 @@ def grafico_interativo_interacoes(df, username, ano):
 
 opção = st.selectbox(
     'Qual marca você escolhe?',
-    ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'crisbarrosoficial', 'animalebrasil', 'mariafilo'))
+    ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'crisbarrosoficial', 'animalebrasil', 'mariafilo'), key='marca')
 
 st.markdown('análise de interações e seguidores')
 st.write('You selected:', opção)
