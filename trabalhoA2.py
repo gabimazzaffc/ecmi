@@ -46,7 +46,7 @@ opção = st.selectbox(
 
 st.markdown('análise de interações e seguidores')
 st.write('You selected:', opção)
-st.header('Gráficos - opção')
+st.header('Gráficos - 'opção'')
 st.altair_chart(grafico_interativo_interacoes(df, 'opção', '2021'), use_container_width=True)
 
 
