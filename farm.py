@@ -13,3 +13,4 @@ df_adorofarm = df[df['User Name']=="adorofarm"]
 df_farmrio = df[df['User Name']=="farmrio"]
 
 st.write(df[df['User Name'] == 'farmrio'].sort_values(by='Total Interactions', ascending=False))
+st.write(df[df['User Name'] == 'adorofarm'].sort_values(by='Total Interactions', ascending=False))
