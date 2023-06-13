@@ -15,11 +15,11 @@ resultado = df[df['Total Interactions'].isin(max_interactions)]
 st.write(resultado)
 
 st.header('Posts com maior número de interações de uma marca')
-opção = st.selectbox(
+marca = st.selectbox(
     'Qual marca você escolhe?',
     ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'crisbarrosoficial', 'animalebrasil', 'mariafilo'))
 
-st.write(df[df['User Name'] == opção].sort_values(by='Total Interactions', ascending=False))
+st.write(df[df['User Name'] == marca].sort_values(by='Total Interactions', ascending=False))
 
 
 def grafico_interativo_interacoes(df, username, ano):
