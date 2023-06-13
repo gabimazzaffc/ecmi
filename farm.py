@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import altair as alt
 
-st.header('Arquivo Contas do Instagram do Grupo Soma')
+st.header('Arquivo Contas do Instagram Farm')
 df = pd.read_parquet('dados_farm.parquet')
 df['Post Created Date'] = pd.to_datetime(df['Post Created Date'])
 df['Total Interactions'] = df['Total Interactions'].apply(lambda x: int(x.replace(',', '')))
