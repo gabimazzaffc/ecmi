@@ -32,7 +32,7 @@ def grafico_interativo_interacoes(df, username, ano):
     follower = alt.Chart(usuario_followers).mark_line().encode(x='Post Created Date', y='Followers at Posting', tooltip=['Post Created Date', 'Followers at Posting'])
     return interacao & follower
 
-st.header('análise de interações e seguidores')
+st.header('Análise de interações e seguidores')
 #st.markdown('análise de interações e seguidores')
 opção = st.selectbox(
     'Qual marca você escolhe?',
