@@ -38,7 +38,7 @@ opção = st.selectbox(
     'Qual marca você escolhe?',
     ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'crisbarrosoficial', 'animalebrasil', 'mariafilo'), key='marca')
 st.write('You selected:', opção)
-#st.header('Gráficos')
+st.header('Gráficos')
 st.altair_chart(grafico_interativo_interacoes(df, opção, '2021'), use_container_width=True)
 
 
