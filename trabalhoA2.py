@@ -10,6 +10,12 @@ df = pd.read_parquet('dados_gruposoma.parquet')
 df['Post Created Date'] = pd.to_datetime(df['Post Created Date'])
 df['Total Interactions'] = df['Total Interactions'].apply(lambda x: int(x.replace(',', '')))
 # df['Post Created'] = pd.to_datetime(df['Post Created'], format='mixed')
+
+with st.sidebar:
+    st.title('Titulo')
+    marca_sidebar = st.selectbox('Escolha uma marca para analisar:', ['bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'animalebrasil', 'mariafilo'])
+    ano_sidebar = st.number_input('Escolha um ano', min_value=2019, max_value=2022, value=2021)
+
 st.dataframe(df)
 
 st.header('O post com mais interação de cada marca')
