@@ -3,6 +3,8 @@ import pandas as pd
 import seaborn as sns
 import altair as alt
 
+st.caption('Gabriela Mazza, Julia Machado, Lavínia Zactiti, Luana Moura e Manoela Noronha')
+st.caption('Ciência de Dados 1° período')
 st.header('Arquivo Contas do Instagram Farm')
 df = pd.read_parquet('dados_farm.parquet')
 df['Post Created Date'] = pd.to_datetime(df['Post Created Date'])
