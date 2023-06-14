@@ -20,7 +20,7 @@ st.write(df[df['User Name'] == 'farmrio'].sort_values(by='Total Interactions', a
 
 with st.sidebar:
     st.title('Titulo')
-    marca_sidebar = st.selectbox('Escolha uma marca para analisar:', ['bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'animalebrasil', 'mariafilo'])
+    marca_sidebar = st.selectbox('Escolha uma marca para analisar:', ['farmrio', 'adorofarm'])
     ano_sidebar = st.number_input('Escolha um ano', min_value=2019, max_value=2022, value=2021)
 
 
