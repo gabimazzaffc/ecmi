@@ -40,9 +40,10 @@ st.header('Análise de interações e seguidores')
 opção = st.selectbox(
     'Qual marca você escolhe?',
     ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'animalebrasil', 'mariafilo'), key='marca')
+ano_opcao = st.number_input('Escolha um ano', min_value=2019, max_value=2022, value=2021)
 st.write('You selected:', opção)
 st.header('Gráficos')
-st.altair_chart(grafico_interativo_interacoes(df, opção, '2021'), use_container_width=True)
+st.altair_chart(grafico_interativo_interacoes(df, opção, ano_opcao), use_container_width=True)
 
 
 st.header('Crescimento percentual de interações por conta')
