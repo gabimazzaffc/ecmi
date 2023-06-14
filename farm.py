@@ -16,7 +16,7 @@ st.write(df[df['User Name'] == 'adorofarm'].sort_values(by='Total Interactions',
 def grafico_interativo_interacoes(df, username, ano):
     if type(ano) != str: 
         ano = str(ano) 
-    usuario = df[df['User Name'] == adorofarm].query('`Post Created Date` >= "' + ano + '-01-01" and `Post Created Date` <= "' + ano + '-12-31"')
+    usuario = df[df['User Name'] == 'adorofarm'].query('`Post Created Date` >= "' + ano + '-01-01" and `Post Created Date` <= "' + ano + '-12-31"')
     usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index() 
     
 st.header('Gráficos')
