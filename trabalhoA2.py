@@ -24,14 +24,10 @@ resultado = df[df['Total Interactions'].isin(max_interactions)]
 st.write(resultado)
 
 st.header('Posts com maior número de interações de uma marca')
-marca = st.selectbox(
-    'Qual marca você escolhe?',
-    ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'animalebrasil', 'mariafilo'))
-
-st.write(df[df['User Name'] == marca].sort_values(by='Total Interactions', ascending=False))
+st.write(df[df['User Name'] == marca_sidebar].sort_values(by='Total Interactions', ascending=False))
 
 
-def grafico_interativo_interacoes(df, username, ano):
+def grafico_interativo_interacoes(df, username, ano_sidebar):
     if type(ano) != str: 
         ano = str(ano) 
     usuario = df[df['User Name'] == username].query('`Post Created Date` >= "' + ano + '-01-01" and `Post Created Date` <= "' + ano + '-12-31"')
@@ -43,13 +39,8 @@ def grafico_interativo_interacoes(df, username, ano):
 
 st.header('Análise de interações e seguidores')
 #st.markdown('análise de interações e seguidores')
-opção = st.selectbox(
-    'Qual marca você escolhe?',
-    ('bynv', 'adorofarm', 'foxtonbrasil', 'hering_oficial', 'animalebrasil', 'mariafilo'), key='marca')
-ano_opcao = st.number_input('Escolha um ano', min_value=2019, max_value=2022, value=2021)
-st.write('You selected:', opção)
 st.header('Gráficos')
-st.altair_chart(grafico_interativo_interacoes(df, opção, ano_opcao), use_container_width=True)
+st.altair_chart(grafico_interativo_interacoes(df, marca_sidebar, ano_sidebar), use_container_width=True)
 
 
 st.header('Crescimento percentual de interações por conta')
