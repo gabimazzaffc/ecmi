@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import altair as alt
 
+st.caption('Gabriela Mazza - A2')
 st.header('Arquivo Contas do Instagram do Grupo Soma')
 df = pd.read_parquet('dados_gruposoma.parquet')
 df['Post Created Date'] = pd.to_datetime(df['Post Created Date'])
