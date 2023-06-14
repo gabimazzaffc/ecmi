@@ -10,11 +10,11 @@ df['Total Interactions'] = df['Total Interactions'].apply(lambda x: int(x.replac
 st.dataframe(df)
 
 
-st.header('Adoro farm')
+st.header('Posts com mais interaçõs adoro farm')
 df_adorofarm = df[df['User Name']=="adorofarm"]
 st.write(df[df['User Name'] == 'adorofarm'].sort_values(by='Total Interactions', ascending=False))
 
-st.header('Farm rio')
+st.header('Posts com mais interaçõs farm rio')
 df_farmrio = df[df['User Name']=="farmrio"]
 st.write(df[df['User Name'] == 'farmrio'].sort_values(by='Total Interactions', ascending=False))
 
