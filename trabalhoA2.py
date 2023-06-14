@@ -27,7 +27,7 @@ st.header('Posts com maior número de interações de uma marca')
 st.write(df[df['User Name'] == marca_sidebar].sort_values(by='Total Interactions', ascending=False))
 
 
-def grafico_interativo_interacoes(df, username, ano_sidebar):
+def grafico_interativo_interacoes(df, username, ano):
     if type(ano) != str: 
         ano = str(ano) 
     usuario = df[df['User Name'] == username].query('`Post Created Date` >= "' + ano + '-01-01" and `Post Created Date` <= "' + ano + '-12-31"')
