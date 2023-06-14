@@ -12,12 +12,17 @@ st.dataframe(df)
 df_adorofarm = df[df['User Name']=="adorofarm"]
 df_adorofarm['Total Interactions'].max()
 st.write(df[df['User Name'] == 'adorofarm'].sort_values(by='Total Interactions', ascending=False))
-df_adorofarm_mais2019 = df[df['User Name'] == 'adorofarm'].query('`Post Created Date` >= "2019-01-01" and `Post Created Date` <= "2023-05-01"')
-df_adorofarm_mais2019_interactions = df_adorofarm_mais2019.groupby('Post Created Date')['Total Interactions'].sum().reset_index()
-plt.figure(figsize=(12, 6))
-sns.lineplot(data=df_adorofarm_mais2019_interactions, x='Post Created Date', y='Total Interactions').set(title='Total de interações - adorofarm')
 
+def grafico_interativo_interacoes(df, username, ano):
+    if type(ano) != str: 
+        ano = str(ano) 
+    usuario = df[df['User Name'] == adorofarm].query('`Post Created Date` >= "' + ano + '-01-01" and `Post Created Date` <= "' + ano + '-12-31"')
+    usuario_interactions = usuario.groupby('Post Created Date')['Total Interactions'].sum().reset_index() 
+    
+st.header('Gráficos')
+st.altair_chart(grafico_interativo_interacoes(df, adorofarm, '2019'), use_container_width=True)
 
+    
 
 
 
